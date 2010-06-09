@@ -10,19 +10,18 @@ require File.join(File.dirname(__FILE__), 'boot')
 require 'yaml'
 SITE_CONFIG = YAML.load_file(File.join(File.dirname(__FILE__), 'site.yml'))
 
-class Rails::Configuration
-  attr_accessor :action_web_service
-end
+# class Rails::Configuration
+#   attr_accessor :action_web_service
+# end
 
 Rails::Initializer.run do |config|
-  # Skip frameworks you're not going to use
-  # config.frameworks -= [ :action_web_service, :action_mailer ]
-  config.load_paths += %W( #{RAILS_ROOT}/app/apis )
+  # config.load_paths += %W( #{RAILS_ROOT}/app/apis )
 
+  config.gem 'nokogiri'
   config.gem "highline"
   config.gem "RedCloth"
   config.gem "soap4r", :lib => false
-  config.gem 'datanoise-actionwebservice', :lib => 'actionwebservice'
+  # config.gem 'datanoise-actionwebservice', :lib => 'actionwebservice'
   config.gem 'sanitize'
 
   config.action_controller.use_accept_header = true
@@ -48,9 +47,7 @@ Rails::Initializer.run do |config|
   # Make Active Record use UTC-base instead of local time
   config.active_record.default_timezone = :utc
 
-  # You''ll probably want to change this to the time zone of the computer where Tracks is running
-  # run rake time:zones:local have Rails suggest time zone names on your system
-  config.time_zone =  SITE_CONFIG['time_zone']
+  config.time_zone = "UTC"
 
   # Use Active Record's schema dumper instead of SQL when creating the test database
   # (enables use of different database adapters for development and test environments)

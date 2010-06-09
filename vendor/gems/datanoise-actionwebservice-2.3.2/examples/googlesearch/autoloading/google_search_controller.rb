@@ -1,5 +1,5 @@
 class GoogleSearchController < ApplicationController
-  wsdl_service_name 'GoogleSearch'
+  # wsdl_service_name 'GoogleSearch'
 
   def doGetCachedPage
     "<html><body>i am a cached page. my key was %s, url was %s</body></html>" % [@params['key'], @params['url']]

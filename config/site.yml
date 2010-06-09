@@ -1,0 +1,5 @@
+salt: "change-me2"
+authentication_schemes:
+  - "database"
+secure_cookies: false
+open_signups: true
