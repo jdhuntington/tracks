@@ -3,7 +3,6 @@ require File.expand_path(File.dirname(__FILE__) + "/../config/environment")
 require File.expand_path(File.dirname(__FILE__) + "/../app/controllers/application_controller")
 require 'test_help'
 require 'flexmock/test_unit' #and the flexmock gem, too!
-require 'action_web_service/test_invoke'
   
 module Tracks
   class Config

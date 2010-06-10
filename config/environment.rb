@@ -10,10 +10,6 @@ require File.join(File.dirname(__FILE__), 'boot')
 require 'yaml'
 SITE_CONFIG = YAML.load_file(File.join(File.dirname(__FILE__), 'site.yml'))
 
-# class Rails::Configuration
-#   attr_accessor :action_web_service
-# end
-
 Rails::Initializer.run do |config|
   # config.load_paths += %W( #{RAILS_ROOT}/app/apis )
 
