@@ -1,0 +1,6 @@
+* Overall
+** Remove Tags
+** Remove Notes
+* Projects
+** DONE Remove < Back | Forward > nav
+* Contexts
