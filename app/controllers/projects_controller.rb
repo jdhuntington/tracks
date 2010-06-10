@@ -79,7 +79,6 @@ class ProjectsController < ApplicationController
       @project.attributes = params['project'] || params['request']['project']
       params_are_invalid = false
     end
-    @go_to_project = params['go_to_project']
     @saved = @project.save
     @project_not_done_counts = { @project.id => 0 }
     @active_projects_count = current_user.projects.active.count

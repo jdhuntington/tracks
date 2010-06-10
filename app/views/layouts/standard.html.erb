@@ -44,6 +44,12 @@
         &nbsp;|&nbsp;
         <%= link_to "Logout (#{current_user.display_name}) »", logout_path %> <p>
       </div>
+        <div id="searchbox">
+          <% form_tag({:controller => 'search', :action => :results}, :id => 'search-form') do %>
+            <%= text_field_tag(:search, params[:search]) %>
+            <%= submit_tag "Search" %>
+          <% end %>
+        </div>
       <div id="navcontainer">
         <ul class="sf-menu">
           <li><%= navigation_link("Home", home_path, {:accesskey => "t", :title => "Home"} ) %></li>
@@ -80,7 +86,6 @@
               <li><%= link_to 'REST API Docs', url_for(:controller => 'integrations', :action => 'rest_api') %></li>
             </ul>
           </li>
-          <li><%= navigation_link(image_tag("system-search.png", :size => "16X16", :border => 0), {:controller => "search", :action => "index"}, :title => "Search All Items" ) %></li>
         </ul>
       </div>
       <%= render_flash %>

@@ -1,6 +1,4 @@
-if @saved and @go_to_project
-  page.redirect_to project_path(@project)
-elsif @saved
+if @saved
   page.hide 'status'
   page['badge_count'].replace_html @down_count
   page.hide 'projects-empty-nd'

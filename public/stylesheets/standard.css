@@ -813,7 +813,7 @@ form {
     width: 100%;
 }
 
-input#go_to_project, input#context_hide {
+input#context_hide {
     width: 5%;
 }
 
