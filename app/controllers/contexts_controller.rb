@@ -11,8 +11,8 @@ class ContextsController < ApplicationController
   def index
     # #true is passed here to force an immediate load so that size and empty?
     # checks later don't result in separate SQL queries
-    @active_contexts = current_user.contexts.active(true) 
-    @hidden_contexts = current_user.contexts.hidden(true)
+    @active_contexts = current_user.contexts(true) 
+    @hidden_contexts = []
     @count = @active_contexts.size + @hidden_contexts.size
     init_not_done_counts(['context'])
     respond_to do |format|

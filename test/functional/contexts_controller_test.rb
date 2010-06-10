@@ -48,11 +48,6 @@ class ContextsControllerTest < TodoContainerControllerTestBase
       end
       assert_select 'item', 10 do
         assert_select 'title', /.+/
-        assert_select 'description' do
-          assert_select_encoded do
-            assert_select 'p', /\d+&nbsp;actions. Context is (Active|Hidden)./
-          end
-        end
         %w(guid link).each do |node|
           assert_select node, /http:\/\/test.host\/contexts\/.+/
         end

@@ -251,8 +251,8 @@ class ApplicationController < ActionController::Base
     @hidden_projects = current_user.projects.hidden
     @active_projects = current_user.projects.active
 
-    @active_contexts = current_user.contexts.active
-    @hidden_contexts = current_user.contexts.hidden
+    @active_contexts = current_user.contexts
+    @hidden_contexts = []
 
     init_not_done_counts
     if prefs.show_hidden_projects_in_sidebar

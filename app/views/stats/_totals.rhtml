@@ -3,9 +3,6 @@
   <%= @projects.hidden.count%> hidden projects and
 <%= @projects.completed.count%> completed projects</p>
 
-<p>You have <%= @contexts.count%> contexts. 
-Of those <%= @contexts.active.count%> are visible contexts and
-<%= @contexts.hidden.count%> are hidden contexts
 
 <% unless @actions.empty? -%>
 <p>Since your first action on <%= format_date(@first_action.created_at) %>

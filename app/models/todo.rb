@@ -295,7 +295,7 @@ class Todo < ActiveRecord::Base
   end
 
   # Rich Todo API
-  
+  # JDTODO (low priority) refactor
   def self.from_rich_message(user, default_context_id, description, notes)
     fields = description.match(/([^>@]*)@?([^>]*)>?(.*)/)
     description = fields[1].strip

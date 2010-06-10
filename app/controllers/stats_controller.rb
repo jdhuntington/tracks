@@ -9,7 +9,7 @@ class StatsController < ApplicationController
 
     @tags_count = get_total_number_of_tags_of_user
     @unique_tags_count = get_unique_tags_of_user.size
-    @hidden_contexts = @contexts.hidden
+    @hidden_contexts = []
     @first_action = @actions.find(:first, :order => "created_at ASC")
     
     get_stats_actions
@@ -327,8 +327,8 @@ class StatsController < ApplicationController
           "WHERE t.user_id=? "+
           "AND t.completed_at IS NULL " +
           "AND t.show_from IS NULL " +
-          "AND NOT (p.state='hidden' OR p.state='pending' OR c.hide=?) " +
-          "ORDER BY t.created_at ASC", @user.id, true]
+          "AND NOT (p.state='hidden' OR p.state='pending') " +
+          "ORDER BY t.created_at ASC", @user.id]
     )
     
     # convert to hash to be able to fill in non-existing days in
@@ -402,7 +402,7 @@ class StatsController < ApplicationController
     @all_actions_per_context = @contexts.find_by_sql(
       "SELECT c.name AS name, c.id as id, count(*) AS total "+
         "FROM contexts c, todos t "+
-        "WHERE t.context_id=c.id AND t.completed_at IS NULL AND NOT c.hide "+
+        "WHERE t.context_id=c.id AND t.completed_at IS NULL "+
         "AND t.user_id="+@user.id.to_s+" "+
         "GROUP BY c.name, c.id "+
         "ORDER BY total DESC"
@@ -598,8 +598,8 @@ class StatsController < ApplicationController
             "WHERE t.user_id=? "+
             "AND t.completed_at IS NULL " +
             "AND t.show_from IS NULL " +
-            "AND NOT (p.state='hidden' OR c.hide=?) " +
-            "ORDER BY t.created_at ASC", @user.id, true]
+            "AND NOT (p.state='hidden') " +
+            "ORDER BY t.created_at ASC", @user.id]
       )
 
       @selected_todo_ids, @count = get_ids_from(@actions_running_time, week_from, week_to, params['id']== 'avrt_end')            
@@ -766,7 +766,7 @@ class StatsController < ApplicationController
     @running_actions_per_context = @contexts.find_by_sql(
       "SELECT c.id AS id, c.name AS name, count(*) AS total "+
         "FROM contexts c, todos t "+
-        "WHERE t.context_id=c.id AND t.completed_at IS NULL AND NOT c.hide "+
+        "WHERE t.context_id=c.id AND t.completed_at IS NULL "+
         "AND t.user_id="+@user.id.to_s+" "+
         "GROUP BY c.id, c.name ORDER BY total DESC " +
         "LIMIT 5"

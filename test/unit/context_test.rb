@@ -91,22 +91,6 @@ class ContextTest < ActiveSupport::TestCase
     assert_equal 'Lists all the contexts for Admin Schmadmin', opts[:description], 'Unexpected value for :description key of feed_options'
   end
 
-  def test_hidden_attr_reader
-    assert !@agenda.hidden?
-    @agenda.hide = true
-    @agenda.save!
-    @agenda.reload
-    assert_equal true, @agenda.hidden?
-  end
-
-  def test_summary
-    undone_todo_count = '5 actions'
-    assert_equal "<p>#{undone_todo_count}. Context is Active.</p>", @agenda.summary(undone_todo_count)
-    @agenda.hide = true
-    @agenda.save!
-    assert_equal "<p>#{undone_todo_count}. Context is Hidden.</p>", @agenda.summary(undone_todo_count)
-  end
-
   def test_null_object
     c = Context.null_object
     assert c.nil?

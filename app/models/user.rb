@@ -80,8 +80,7 @@ class User < ActiveRecord::Base
            :conditions => [ 'state = ?', 'active' ]
   has_many :active_contexts,
            :class_name => 'Context',
-           :order => 'position ASC',
-           :conditions => [ 'hide = ?', false ]
+           :order => 'position ASC'
   has_many :todos,
            :order => 'todos.completed_at DESC, todos.created_at DESC',
            :dependent => :delete_all

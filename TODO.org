@@ -4,3 +4,4 @@
 * Projects
 ** DONE Remove < Back | Forward > nav
 * Contexts
+** Remove "Hidden" concept

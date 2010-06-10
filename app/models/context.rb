@@ -4,9 +4,6 @@ class Context < ActiveRecord::Base
   has_many :recurring_todos, :dependent => :delete_all
   belongs_to :user
 
-  named_scope :active, :conditions => { :hide => false }
-  named_scope :hidden, :conditions => { :hide => true }
-
   acts_as_list :scope => :user
   extend NamePartFinder
   include Tracks::TodoList
@@ -29,19 +26,13 @@ class Context < ActiveRecord::Base
     NullContext.new
   end
 
-  def hidden?
-    self.hide == true || self.hide == 1
-  end
-  
   def title
     name
   end
-  
+
+  # JDTODO - Rendering HTML in a model. Yuck
   def summary(undone_todo_count)
-    s = "<p>#{undone_todo_count}. "
-    s += "Context is #{hidden? ? 'Hidden' : 'Active'}."
-    s += "</p>"
-    s
+    "<p>#{undone_todo_count}.</p> "
   end
   
   def new_record_before_save?

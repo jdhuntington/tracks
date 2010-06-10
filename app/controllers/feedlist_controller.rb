@@ -16,8 +16,8 @@ class FeedlistController < ApplicationController
     @hidden_projects = current_user.projects.hidden
     @completed_projects = current_user.projects.completed
     
-    @active_contexts = current_user.contexts.active
-    @hidden_contexts = current_user.contexts.hidden
+    @active_contexts = current_user.contexts
+    @hidden_contexts = []
     
     respond_to do |format|
       format.html { render :layout => 'standard' }
