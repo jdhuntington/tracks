@@ -32,37 +32,24 @@
   <body class="<%= @controller.controller_name %>">
     <div id="topbar">
       <div id="date">
-        <h1>
-          <% if @count -%>
-            <span id="badge_count" class="badge"><%= @count %></span>
-          <% end -%>
-          <%= current_user.time.strftime(@prefs.title_date_format) %>
-        </h1>
+        <h1><em>Narrow</em>Gauge</h1>
       </div>
       <div id="minilinks">
-        <%= link_to("Toggle notes", "#", {:accesskey => "S", :title => "Toggle all notes", :id => "toggle-notes-nav"}) %>
-        &nbsp;|&nbsp;
-        <%= link_to "Logout (#{current_user.display_name}) »", logout_path %> <p>
-      </div>
         <div id="searchbox">
           <% form_tag({:controller => 'search', :action => :results}, :id => 'search-form') do %>
             <%= text_field_tag(:search, params[:search]) %>
             <%= submit_tag "Search" %>
           <% end %>
         </div>
+      </div>
       <div id="navcontainer">
         <ul class="sf-menu">
-          <li><%= navigation_link("Home", home_path, {:accesskey => "t", :title => "Home"} ) %></li>
-          <li><%= navigation_link("Starred", tag_path("starred"), :title => "See your starred actions" ) %></li>
+          <li><%= navigation_link("INBOX", home_path, {:accesskey => "t", :title => "Home"} ) %></li>
           <li><%= navigation_link("Projects", projects_path, {:accesskey=>"p", :title=>"Projects"} ) %></li>
+           <li><%= navigation_link( "Contexts", contexts_path, {:accesskey=>"c", :title=>"Contexts"} ) %></li>
+          <li><%= navigation_link("Starred", tag_path("starred"), :title => "See your starred actions" ) %></li>
           <li><%= navigation_link("Tickler", tickler_path, {:accesskey =>"k", :title => "Tickler"} ) %></li>
-          <li><a href="#">Organize</a>
-            <ul>
-              <li><%= navigation_link( "Contexts", contexts_path, {:accesskey=>"c", :title=>"Contexts"} ) %></li>
-              <li><%= navigation_link( "Notes", notes_path, {:accesskey => "o", :title => "Show all notes"} ) %></li>
-              <li><%= navigation_link( "Repeating todos", {:controller => "recurring_todos", :action => "index"}, :title => "Manage recurring actions" ) %></li>
-            </ul>
-          </li>
+          <li><%= navigation_link( "Repeating todos", {:controller => "recurring_todos", :action => "index"}, :title => "Manage recurring actions" ) %></li>
           <li><a href="#">View</a>
             <ul>
               <li><%= navigation_link( "Calendar", calendar_path, :title => "Calendar of due actions" ) %></li>
@@ -86,6 +73,7 @@
               <li><%= link_to 'REST API Docs', url_for(:controller => 'integrations', :action => 'rest_api') %></li>
             </ul>
           </li>
+          <li><%= link_to "Logout (#{current_user.display_name}) »", logout_path %></li>
         </ul>
       </div>
       <%= render_flash %>

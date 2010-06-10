@@ -73,11 +73,9 @@ ul.sf-menu li li li.sfHover ul {
 }
 
 .sf-menu a, .sf-menu a:visited, .sf-menu ul li a  { /* visited pseudo selector so IE6 applies text colour*/
-    font-weight: bold;
     margin-left: 10px;
     text-decoration: none;
-    color: #eee;
-    border-bottom: 4px solid #000;  /* make sure there is enough room for the solid */
+    color: #111;
 }
 
 .sf-item-menu a, .sf-item-menu a:visited, .sf-item-menu ul li a {
@@ -129,7 +127,7 @@ ul.sf-menu li li li.sfHover ul {
 
 .sf-menu li:hover, .sf-menu li.sfHover,
 .sf-menu a:focus, .sf-menu a:hover, .sf-menu a:active {
-    color: #CCC;
+    color: #000;
 }
 
 .sf-item-menu li:hover, .sf-item-menu li.sfHover,
@@ -139,8 +137,7 @@ ul.sf-menu li li li.sfHover ul {
 }
 
 .sf-menu a:focus, .sf-menu a:hover, .sf-menu a:active {
-    border-bottom: 4px solid #CCC;
-    background: transparent;
+    background: #72C1CE;
 }
 
 .sf-item-menu a:focus, .sf-item-menu a:hover, .sf-item-menu a:active {

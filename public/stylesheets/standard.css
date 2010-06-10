@@ -35,7 +35,7 @@ body {
     font-size: 80%;
     padding: 0px 10px;
     margin: 0px;
-    background: #eee;
+    background: #f6f6f6;
 }
 
 p {
@@ -70,8 +70,6 @@ h3 {
     font-size: 129%;
     font-weight: bold;
 }
-
-/* Rules for the icon links */
 
 img.edit_item {background-image: url(../images/edit_off.png); background-repeat: no-repeat; border: none;}
 a:hover img.edit_item {background-image: url(../images/edit_on.png); background-color: transparent; background-repeat: no-repeat; border: none;}
@@ -261,8 +259,8 @@ body.preferences div#input_box {
     height: 68px;
     margin-bottom: 20px;
     clear: both;
-    background-color: #000;
-    color: #eee;
+    background-color: #ADF7ED;
+    color: #111;
     width: 100%;
     z-index:101;
 }
@@ -793,7 +791,7 @@ form {
     background: #ddd;
     width: 270px;
     padding: 5px 10px;
-    background-color: #000;
+    background-color: #5E5226;
     color: #eee;
 }
 

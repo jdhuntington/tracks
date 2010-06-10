@@ -327,6 +327,7 @@ $(document).ready(function() {
   });
 
   /* for toggle notes link in mininav */
+  // JDTODO - make sure this gets re-enabled somehow
   $("#toggle-notes-nav").click(function () { $(".todo_notes").toggle(); });
   
   /* show the notes of a todo */
