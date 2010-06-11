@@ -26,7 +26,6 @@ class Project < ActiveRecord::Base
     :conditions => ["todos.state = ? ", "pending"],
     :order => "show_from"
 
-  has_many :notes, :dependent => :delete_all, :order => "created_at DESC"
   has_many :recurring_todos
 
   belongs_to :default_context, :class_name => "Context", :foreign_key => "default_context_id"
@@ -63,7 +62,6 @@ class Project < ActiveRecord::Base
   end
   
   attr_protected :user
-  attr_accessor :cached_note_count
 
   def self.null_object
     NullProject.new
@@ -92,10 +90,6 @@ class Project < ActiveRecord::Base
         t.save
       end
     end
-  end
-  
-  def note_count
-    cached_note_count || notes.count
   end
   
   alias_method :original_default_context, :default_context

@@ -46,12 +46,6 @@ class User < ActiveRecord::Base
                 return nil if position == 0 && offset < 0
                 projects.at( position + offset)
               end
-              def cache_note_counts
-                project_note_counts = Note.count(:group => 'project_id')
-                self.each do |project|
-                  project.cached_note_count = project_note_counts[project.id] || 0
-                end
-              end
               def alphabetize(scope_conditions = {})
                 projects = find(:all, :conditions => scope_conditions)
                 projects.sort!{ |x,y| x.name.downcase <=> y.name.downcase }
