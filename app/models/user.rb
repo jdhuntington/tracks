@@ -109,7 +109,6 @@ class User < ActiveRecord::Base
       reject { |x| x.completed_at > date }
     end
   end
-  has_many :notes, :order => "created_at DESC", :dependent => :delete_all
   has_one :preference, :dependent => :destroy
 
   attr_protected :is_admin
