@@ -208,7 +208,6 @@ class ProjectsController < ApplicationController
       @hidden_projects = current_user.projects.hidden
       @completed_projects = current_user.projects.completed
       @no_projects = current_user.projects.empty?
-      current_user.projects.cache_note_counts
       @new_project = current_user.projects.build
       render
     end

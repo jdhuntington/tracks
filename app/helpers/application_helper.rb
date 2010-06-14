@@ -98,9 +98,7 @@ module ApplicationHelper
   end
 
   def count_undone_todos_and_notes_phrase(project, string="actions")
-    s = count_undone_todos_phrase(project, string)
-    s += ", #{pluralize(project.note_count, 'note')}" unless project.note_count == 0
-    s
+    count_undone_todos_phrase(project, string)
   end
   
   def link_to_context(context, descriptor = sanitize(context.name))
