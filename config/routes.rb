@@ -55,6 +55,7 @@ ActionController::Routing::Routes.draw do |map|
     todos.mobile_abbrev 'm', :action => "index", :format => 'm'
     todos.mobile_abbrev_new 'm/new', :action => "new", :format => 'm'
   end
+  map.quick_entry 'quick_entry', :controller => 'todos', :action => 'quick_entry'
   map.root :controller => 'todos' # Make OpenID happy because it needs #root_url defined
   
   map.resources :notes

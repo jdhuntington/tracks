@@ -27,6 +27,18 @@ class TodosController < ApplicationController
       format.ics   &render_ical_feed
     end
   end
+
+  def quick_entry
+    # TODO - refactor this into a "REST"ful style once more methods
+    # are cleand up
+    if request.post? && !(params['quick-entry-box'].empty?)
+      todo = current_user.todos.build(:description => params['quick-entry-box'])
+      context = current_user.contexts.find_or_create_by_name('INBOX')
+      todo.context_id = context.id
+      todo.save!
+      flash[:notice] = "Saved"
+    end
+  end
   
   def new
     @projects = current_user.projects.active
