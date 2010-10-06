@@ -1,24 +1,13 @@
 <%  context = context_listing 
-    suppress_drag_handle ||= false
     suppress_edit_button ||= false
 %>
 <div id="<%= dom_id(context, "container") %>" class="list">
   <div id="<%= dom_id(context) %>" class="context sortable_row" style="display:'';">
-    <% unless suppress_drag_handle -%>
-      <div class="position">
-        <span class="handle">DRAG</span>
-      </div>
-    <% end -%>
     <div class="data">
       <%= link_to_context( context ) %> <%= " (" + count_undone_todos_phrase(context,"actions") + ")" %>
     </div>
     
     <div class="buttons">
-      <% if context.hide? %>
-        <span class="grey">HIDDEN</span>
-      <% else %>
-        <span class="grey">VISIBLE</span>
-      <% end %>
       <%=  link_to_remote(
         image_tag( "blank.png", :title => "Delete context", :class=>"delete_item"),
         :url => {:controller => 'contexts', :action => 'destroy', :id => context.id},
