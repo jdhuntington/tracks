@@ -8,7 +8,7 @@ parameters += "&_tag_name=#{@tag_name}" if @source_view == 'tag'
 %>
 <div id="<%= dom_id(successor, 'successor') %>" class="item-container">
   <div id="<%= dom_id(successor, 'successor_line') %>">
-    <div class="description<%= staleness_class( successor ) %>" style="margin-left: 20px">
+    <div class="description" style="margin-left: 20px">
       <span class="todo.descr"><%= h sanitize(successor.description) %></span>
       
       <%= link_to_remote(

@@ -173,26 +173,6 @@ module TodosHelper
     return str
   end
     
-  # Uses the 'staleness_starts' value from settings.yml (in days) to colour the
-  # background of the action appropriately according to the age of the creation
-  # date:
-  # * l1: created more than 1 x staleness_starts, but < 2 x staleness_starts
-  # * l2: created more than 2 x staleness_starts, but < 3 x staleness_starts
-  # * l3: created more than 3 x staleness_starts
-  #
-  def staleness_class(item)
-    if item.due || item.completed?
-      return ""
-    elsif item.created_at < current_user.time - (prefs.staleness_starts * 3).days
-      return " stale_l3"
-    elsif item.created_at < current_user.time - (prefs.staleness_starts * 2).days
-      return " stale_l2"
-    elsif item.created_at < current_user.time - (prefs.staleness_starts).days
-      return " stale_l1"
-    else
-      return ""
-    end
-  end
 
   # Check show_from date in comparison to today's date Flag up date
   # appropriately with a 'traffic light' colour code

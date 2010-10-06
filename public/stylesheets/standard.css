@@ -259,7 +259,7 @@ body.preferences div#input_box {
     height: 68px;
     margin-bottom: 20px;
     clear: both;
-    background-color: #ADF7ED;
+    background-color: #99a32e;
     color: #111;
     width: 100%;
     z-index:101;
@@ -324,14 +324,14 @@ h2 a:hover {
     text-decoration: none;
 }
 
-div#input_box {
-    position: absolute;
-    width: 265px;
-    margin: 0;
-    padding: 0px 0px 0px 0px;
-    top: 90px;
-    right: 40px;
-}
+/* div#input_box { */
+/*     position: absolute; */
+/*     width: 265px; */
+/*     margin: 0; */
+/*     padding: 0px 0px 0px 0px; */
+/*     top: 90px; */
+/*     right: 40px; */
+/* } */
 
 #input_box h2 {
     color: #999;
@@ -788,8 +788,8 @@ form {
     background: #ddd;
     width: 270px;
     padding: 5px 10px;
-    background-color: #5E5226;
-    color: #eee;
+    background-color: #ccba7b;
+    color: #222;
 }
 
 #recurring_new_container img {
@@ -918,7 +918,7 @@ input, select, textarea {
 
 div.message {
     margin: 5px 0px; 
-    background: #FAF4B5;
+    background: #fff195;
     padding: 2px;
 }
 

@@ -34,14 +34,6 @@
       <div id="date">
         <h1><em>Narrow</em>Gauge</h1>
       </div>
-      <div id="minilinks">
-        <div id="searchbox">
-          <% form_tag({:controller => 'search', :action => :results}, :id => 'search-form') do %>
-            <%= text_field_tag(:search, params[:search]) %>
-            <%= submit_tag "Search" %>
-          <% end %>
-        </div>
-      </div>
       <div id="navcontainer">
         <ul class="sf-menu">
           <li><%= navigation_link("INBOX", home_path, {:accesskey => "t", :title => "Home"} ) %></li>
