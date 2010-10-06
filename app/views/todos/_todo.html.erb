@@ -26,7 +26,7 @@ parameters += "&_tag_name=#{@tag_name}" if @source_view == 'tag'
         </ul>
       </li>
     </ul>
-    <div class="description<%= staleness_class( todo ) %>">
+    <div class="description">
       <%= grip_span %>
       <%= date_span -%>
       <span class="todo.descr"><%= h todo.description %></span>
